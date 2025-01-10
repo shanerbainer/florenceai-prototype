@@ -16,28 +16,38 @@
         .container {
             max-width: 600px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 30px;
             background-color: #FFF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
         }
         .logo {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .logo img {
-            max-width: 150px;
+            max-width: 180px;
         }
         .progress-bar {
             background-color: #F29266;
-            height: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            width: 40%;
+            height: 12px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            width: 50%;
+            transition: width 0.3s ease-in-out;
         }
         h1 {
             color: #50C878;
             text-align: center;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
         }
         .social-login {
             display: flex;
@@ -47,41 +57,49 @@
         .social-login button {
             background-color: #50C878;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             color: #FFF;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .social-login button:hover {
             background-color: #409763;
         }
         .alternative-option {
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
+            font-size: 16px;
         }
         .alternative-option a {
             color: #F29266;
             text-decoration: none;
+            font-weight: bold;
             cursor: pointer;
         }
         .tooltip {
             background-color: #F29266;
             color: #FFF;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: 8px;
             margin-top: 20px;
             display: none;
+            text-align: center;
+            font-size: 16px;
         }
         .next-step {
             background-color: #50C878;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             color: #FFF;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             display: block;
-            margin: 20px auto;
+            margin: 30px auto;
+            font-size: 18px;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
         .next-step:hover {
             background-color: #409763;
@@ -129,20 +147,23 @@
             toggleVisibility('nextStepButton');
             toggleVisibility('social-login');
             toggleVisibility('alternative-option');
+            document.querySelector('.progress-bar').style.width = '70%';
         }
 
         function handleAlternativeLogin() {
-            updateHeader('Tell me about your goals', 'Do you have upcoming life events FlorenceAI can help prepare you for?');
+            updateHeader('Tell me about your goals', 'Do you have any immediate financial needs FlorenceAI can help prepare you for?');
             toggleVisibility('tooltip');
             toggleVisibility('nextStepButton');
             toggleVisibility('social-login');
             toggleVisibility('alternative-option');
+            document.querySelector('.progress-bar').style.width = '70%';
         }
 
         function handleNextStep() {
             updateHeader('You’re all set!', 'A more personalized financial journey starts now!');
             toggleVisibility('tooltip');
             toggleVisibility('nextStepButton');
+            document.querySelector('.progress-bar').style.width = '100%';
         }
 
         function updateHeader(title, message) {
