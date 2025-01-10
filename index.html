@@ -63,7 +63,14 @@
             border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: background-color 0.3s ease;
+        }
+        .social-login button img {
+            width: 20px;
+            height: 20px;
         }
         .social-login button:hover {
             background-color: #409763;
@@ -119,9 +126,18 @@
         <h1>Welcome to FlorenceAI</h1>
         <p>Your financial journey starts here. Let's get you securely onboarded!</p>
         <div class="social-login">
-            <button id="facebookLogin">Login with Facebook</button>
-            <button id="linkedinLogin">Login with LinkedIn</button>
-            <button id="googleLogin">Login with Google</button>
+            <button id="facebookLogin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                Login with Facebook
+            </button>
+            <button id="linkedinLogin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn Logo">
+                Login with LinkedIn
+            </button>
+            <button id="googleLogin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                Login with Google
+            </button>
         </div>
         <div class="alternative-option">
             <p>Prefer not to use social media?</p>
@@ -152,7 +168,7 @@
         }
 
         function handleAlternativeLogin() {
-            updateHeader('Tell me about your goals', 'Do you have any immediate financial needs FlorenceAI can help prepare you for?');
+            updateHeader('Let's Talk About Your Goals', 'Do You Have Any Immediate Financial Needs FlorenceAI Can Help Prepare You For?');
             toggleVisibility('tooltip');
             toggleVisibility('nextStepButton');
             toggleVisibility('social-login');
@@ -161,7 +177,7 @@
         }
 
         function handleNextStep() {
-            updateHeader('You’re all set!', 'A more personalized financial journey starts now!');
+            updateHeader('You’re All Set!', 'A More Personalized Financial Journey Starts Now!');
             toggleVisibility('tooltip');
             toggleVisibility('nextStepButton');
             document.querySelector('.progress-bar').style.width = '100%';
