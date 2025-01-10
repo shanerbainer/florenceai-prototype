@@ -30,14 +30,6 @@
             max-width: 180px;
             border-radius: 12px;
         }
-        .progress-bar {
-            background-color: #F29266;
-            height: 12px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-            width: 50%;
-            transition: width 0.3s ease-in-out;
-        }
         h1 {
             color: #50C878;
             text-align: center;
@@ -70,7 +62,7 @@
         }
         .social-login button img {
             width: 40px;
-            height: px;
+            height: auto;
         }
         .social-login button:hover {
             background-color: #e0e0e0;
@@ -122,21 +114,20 @@
         <div class="logo">
             <img src="https://via.placeholder.com/180x50?text=FlorenceAI+Logo" alt="FlorenceAI Logo">
         </div>
-        <div class="progress-bar"></div>
         <h1>Welcome to FlorenceAI!</h1>
         <p>Your Financial Journey Starts Here! Let's Get You Securely Onboarded!</p>
         <div class="social-login">
-            <button id="facebookLogin">
+            <button id="facebookLogin" onclick="location.href='https://www.facebook.com/login'">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
                 Login with Facebook
             </button>
-            <button id="linkedinLogin">
+            <button id="linkedinLogin" onclick="location.href='https://www.linkedin.com/login'">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn Logo">
                 Login with LinkedIn
             </button>
-            <button id="googleLogin">
+            <button id="googleLogin" onclick="location.href='https://accounts.google.com/signin'">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png" alt="Google Logo">
-        Login with Google
+                Login with Google
             </button>
         </div>
         <div class="alternative-option">
@@ -151,20 +142,8 @@
 
     <script>
         function initializeEventListeners() {
-            document.getElementById('facebookLogin').addEventListener('click', handleSocialLogin);
-            document.getElementById('linkedinLogin').addEventListener('click', handleSocialLogin);
-            document.getElementById('googleLogin').addEventListener('click', handleSocialLogin);
             document.getElementById('emailLogin').addEventListener('click', handleAlternativeLogin);
             document.getElementById('nextStepButton').addEventListener('click', handleNextStep);
-        }
-
-        function handleSocialLogin() {
-            updateHeader('Tell me about your goals', 'What is your primary financial goal?');
-            toggleVisibility('tooltip');
-            toggleVisibility('nextStepButton');
-            toggleVisibility('social-login');
-            toggleVisibility('alternative-option');
-            document.querySelector('.progress-bar').style.width = '70%';
         }
 
         function handleAlternativeLogin() {
@@ -173,14 +152,12 @@
             toggleVisibility('nextStepButton');
             toggleVisibility('social-login');
             toggleVisibility('alternative-option');
-            document.querySelector('.progress-bar').style.width = '70%';
         }
 
         function handleNextStep() {
             updateHeader('You’re All Set!', 'A More Personalized Financial Journey Starts Now!');
             toggleVisibility('tooltip');
             toggleVisibility('nextStepButton');
-            document.querySelector('.progress-bar').style.width = '100%';
         }
 
         function updateHeader(title, message) {
